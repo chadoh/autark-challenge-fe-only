@@ -1,13 +1,19 @@
 import React, { useState } from 'react'
+import styled from 'styled-components'
 import { Card as AragonCard } from '@aragon/ui'
 import { DragHandle, Wrap } from "./styled"
 import Show from "./Show"
 import Edit from "./Edit"
 
+const StyledCard = styled(AragonCard)`
+  grid-column: ${p => p.fullWidth ? 'span 2' : undefined};
+`
+
 export default function Card({
   id,
   title,
   body,
+  fullWidth,
 
   allowEdit,
   editing: editingProp,
@@ -34,7 +40,7 @@ export default function Card({
   }
 
   return (
-    <AragonCard data-id={id} height="initial" width="initial">
+    <StyledCard fullWidth={fullWidth} data-id={id} height="initial" width="initial">
       <Wrap>
         {allowEdit && editing
           ? <React.Fragment>
@@ -59,6 +65,6 @@ export default function Card({
             />
         }
       </Wrap>
-    </AragonCard>
+    </StyledCard>
   )
 }

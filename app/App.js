@@ -65,8 +65,8 @@ export default class App extends React.Component {
     this.forceUpdate();
   }
 
-  updateWidget = (id, title, body) => {
-    db.setData({ [`widgets.data.${id}`]: { title, body } })
+  updateWidget = (id, title, body, fullWidth) => {
+    db.setData({ [`widgets.data.${id}`]: { title, body, fullWidth } })
   }
 
   removeWidget = id => {

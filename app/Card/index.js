@@ -46,6 +46,7 @@ export default function Card({
           ? <React.Fragment>
               <Edit
                 body={body}
+                fullWidth={fullWidth}
                 moveUp={moveUp}
                 remove={remove}
                 setEditing={setEditing}

@@ -15,6 +15,7 @@ import {
 
 const Edit = ({
   body,
+  fullWidth,
   moveUp,
   remove,
   setEditing,
@@ -26,8 +27,8 @@ const Edit = ({
   <Form
     onSubmit={e => {
       e.preventDefault()
-      const { title, body } = e.target.elements
-      update(title.value, body.value)
+      const { title, body, fullWidth } = e.target.elements
+      update(title.value, body.value, fullWidth.checked)
       setEditing(false)
     }}
     onKeyDown={e => {
@@ -54,6 +55,11 @@ const Edit = ({
       <label htmlFor="body">Body</label>
     </Hidden>
     <Textarea defaultValue={body} id="body" name="body" />
+    <Buttons>
+      <label htmlFor="fullWidth">Full width?</label>
+      <input id="fullWidth" name="fullWidth" type="checkbox" defaultChecked={fullWidth}/>
+      <span>&nbsp;</span>
+    </Buttons>
     <Buttons>
       <Button size="small" mode="strong" type="submit">Save</Button>
       <Button size="small" onClick={() => setEditing(false)}>Cancel</Button>

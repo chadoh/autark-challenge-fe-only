@@ -16,10 +16,12 @@ import Hidden from './Hidden'
 const db = createDatabase();
 
 const Grid = styled.div`
+  margin: 0 auto;
+  max-width: 1200px;
   > * { margin-bottom: 1em }
-  @media(min-width: 500px) {
+  @media(min-width: 600px) {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(282px, 1fr));
+    grid-template-columns: 2fr 1fr;
     grid-gap: 1em;
     > * { margin-bottom: 0 }
   }
